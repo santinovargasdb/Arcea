@@ -22,7 +22,7 @@ Leyenda: `[x]` hecho · `[~]` en progreso · `[ ]` pendiente
 - [x] Documentación: `CLAUDE.md`, `ROADMAP.md`
 - [ ] **Crear cuenta + proyecto en Supabase** (URL, anon key, service-role key) → completar `.env.local`
 - [ ] **Crear cuenta en Vercel**, importar el repo y cargar variables de entorno
-- [ ] Subir el repo a GitHub
+- [x] Subir el repo a GitHub ([santinovargasdb/Arcea](https://github.com/santinovargasdb/Arcea))
 - [ ] **Primer deploy a Vercel** → el sitio queda online 🎉
 
 > ⏳ Bloqueante externo: las cuentas de Supabase y Vercel las creás vos; te guío paso a paso.
