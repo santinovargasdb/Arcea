@@ -55,13 +55,16 @@ Leyenda: `[x]` hecho · `[~]` en progreso · `[ ]` pendiente
 > (`.env.local` + correr migraciones `0001`→`0003`). Falta probar los flujos con
 > backend real (registro/confirmación, login, reset, gating) y el deploy.
 
-## Fase 3 — Carrito y checkout `[ ]`
+## Fase 3 — Carrito y checkout `[~]`
 
-- [ ] `carts` / `cart_items` + RLS; Server Actions de carrito; persistencia + merge invitado→usuario
-- [ ] `CartSheet` y estado en cliente
-- [ ] `orders` / `order_items` con snapshot inmutable y descuento de stock (RPC transaccional)
-- [ ] Páginas de checkout (decisión: checkout de invitado permitido)
+- [x] Carrito client-side (estado + `localStorage`), `CartSheet` (drawer), badge, `/cart`
+- [x] `AddToCart` con selección de variante en el detalle
+- [~] Checkout: maqueta demo lista (`/checkout`); órdenes, descuento de stock y merge invitado→usuario esperan Supabase
+- [ ] `carts` / `cart_items` + `orders` / `order_items` con RLS y RPC transaccional (al conectar Supabase)
 - [ ] Deploy
+
+> 💡 El carrito funciona sin backend (persiste en el navegador). El checkout es una vista previa
+> no funcional hasta conectar Supabase + MercadoPago (pago real = Fase 4).
 
 ## Fase 4 — Pagos MercadoPago `[ ]`
 
