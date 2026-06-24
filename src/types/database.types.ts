@@ -123,10 +123,32 @@ export type Database = {
         Update: Partial<Database["public"]["Tables"]["product_images"]["Insert"]>;
         Relationships: [];
       };
+      profiles: {
+        Row: {
+          id: string;
+          full_name: string | null;
+          phone: string | null;
+          role: Database["public"]["Enums"]["user_role"];
+          created_at: string;
+          updated_at: string;
+        };
+        Insert: {
+          id: string;
+          full_name?: string | null;
+          phone?: string | null;
+          role?: Database["public"]["Enums"]["user_role"];
+          created_at?: string;
+          updated_at?: string;
+        };
+        Update: Partial<Database["public"]["Tables"]["profiles"]["Insert"]>;
+        Relationships: [];
+      };
     };
     Views: Record<string, never>;
     Functions: Record<string, never>;
-    Enums: Record<string, never>;
+    Enums: {
+      user_role: "customer" | "admin";
+    };
     CompositeTypes: Record<string, never>;
   };
 };
