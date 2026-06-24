@@ -1,4 +1,5 @@
 import { createClient } from "@/lib/supabase/server";
+import { isSupabaseConfigured } from "@/lib/supabase/config";
 import { SEED_PRODUCTS, SEED_CATEGORIES, type SeedProduct } from "./seed-data";
 import type {
   Badge,
@@ -15,7 +16,7 @@ import type {
 export * from "./catalog-types";
 
 /** Cuando hay Supabase configurado usamos la base real; si no, datos locales. */
-export const isSupabaseConfigured = Boolean(process.env.NEXT_PUBLIC_SUPABASE_URL);
+export { isSupabaseConfigured };
 
 const DEFAULT_PER_PAGE = 8;
 
