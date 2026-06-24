@@ -13,7 +13,7 @@ const NAV = [
   { label: "Casual", href: "/products?category=casual" },
 ];
 
-export function Header() {
+export function Header({ isAuthenticated = false }: { isAuthenticated?: boolean }) {
   const [open, setOpen] = useState(false);
 
   return (
@@ -42,9 +42,13 @@ export function Header() {
           <Link href="/products" aria-label="Buscar" className="transition-colors hover:text-burgundy">
             <Search className="h-5 w-5" />
           </Link>
-          <button aria-label="Cuenta" className="transition-colors hover:text-burgundy">
+          <Link
+            href={isAuthenticated ? "/account" : "/login"}
+            aria-label={isAuthenticated ? "Mi cuenta" : "Ingresar"}
+            className="transition-colors hover:text-burgundy"
+          >
             <User className="h-5 w-5" />
-          </button>
+          </Link>
           <button aria-label="Carrito" className="relative transition-colors hover:text-burgundy">
             <ShoppingBag className="h-5 w-5" />
           </button>
