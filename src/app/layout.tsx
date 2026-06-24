@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Fraunces, Hanken_Grotesk } from "next/font/google";
 import { Toaster } from "sonner";
+import { CartProvider } from "@/lib/cart/cart-context";
+import { CartSheet } from "@/components/cart/cart-sheet";
 import "./globals.css";
 
 const hanken = Hanken_Grotesk({
@@ -36,7 +38,10 @@ export default function RootLayout({
       className={`${hanken.variable} ${fraunces.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col">
-        {children}
+        <CartProvider>
+          {children}
+          <CartSheet />
+        </CartProvider>
         <Toaster richColors position="bottom-center" />
       </body>
     </html>
