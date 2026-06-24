@@ -84,13 +84,15 @@ Leyenda: `[x]` hecho · `[~]` en progreso · `[ ]` pendiente
 - [ ] `business_settings` (nombre, redes, contacto) editable
 - [ ] Deploy
 
-## Fase 6 — Info del negocio y pulido `[ ]`
+## Fase 6 — Info del negocio y pulido `[~]`
 
-- [ ] Páginas about / contacto; header y footer dinámicos desde `business_settings`
-- [ ] Redes sociales (Instagram, etc.)
-- [ ] SEO (metadata, sitemap, OG), estados vacíos/errores, accesibilidad, performance
-- [ ] Analítica; e2e de compra
+- [x] Páginas about / contacto (copy aprobada del mockup); links en header y footer
+- [~] Redes sociales: Instagram/WhatsApp/email en contacto y footer; versión dinámica desde `business_settings` espera backend
+- [x] SEO base: metadata por página, `sitemap.xml`, `robots.txt`, Open Graph image dinámica (`next/og`)
+- [ ] Estados vacíos/errores, accesibilidad, performance; analítica; e2e de compra
 - [ ] **Go-live con credenciales de producción** de MercadoPago
+
+> 💡 about/contacto + SEO construidos sin backend. Falta lo que depende de Supabase/MercadoPago.
 
 ---
 
