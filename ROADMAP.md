@@ -43,13 +43,17 @@ Leyenda: `[x]` hecho · `[~]` en progreso · `[ ]` pendiente
 > (`seed-data.ts`) mientras no haya `.env` de Supabase, y usa la base real cuando se
 > configure. `npm run build` pasa. Falta solo el deploy (bloqueante externo).
 
-## Fase 2 — Autenticación y cuentas `[ ]`
+## Fase 2 — Autenticación y cuentas `[~]`
 
-- [ ] `profiles` + trigger de creación + enum de rol; RLS
-- [ ] Login / registro / olvido y reset de contraseña; callbacks de auth
-- [ ] Gating de `/account` en el middleware
-- [ ] Perfil, direcciones (CRUD), shell del historial de pedidos
+- [x] `profiles` + trigger de creación + enum de rol; RLS (anti-escalada)
+- [x] Login / registro / olvido y reset de contraseña; callback de auth
+- [x] Gating de `/account` en el Proxy (ex-middleware en Next 16)
+- [~] Perfil editable; direcciones (CRUD) e historial de pedidos quedan para cuando la Fase 3 los use
 - [ ] Deploy
+
+> 💡 Construido "a ciegas": el código compila y se activa al conectar Supabase
+> (`.env.local` + correr migraciones `0001`→`0003`). Falta probar los flujos con
+> backend real (registro/confirmación, login, reset, gating) y el deploy.
 
 ## Fase 3 — Carrito y checkout `[ ]`
 
