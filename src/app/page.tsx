@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-center bg-[#F4EEE3] px-6 text-center text-[#23231D]">
@@ -18,6 +20,13 @@ export default function Home() {
         Estamos tejiendo nuestra nueva tienda online. Sweaters, abrigos y
         casualwear en tejidos naturales — muy pronto.
       </p>
+
+      <Link
+        href="/products"
+        className="mt-10 inline-flex items-center gap-2 rounded-full bg-[#2C382A] px-8 py-4 text-sm font-semibold uppercase tracking-wider text-[#F4EEE3] transition-colors hover:bg-[#6E292E]"
+      >
+        Ver colección →
+      </Link>
 
       <div className="mt-12 flex items-center gap-3 text-sm font-medium text-[#46553C]">
         <span className="h-px w-8 bg-[#46553C]/50" />

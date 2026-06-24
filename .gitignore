@@ -40,6 +40,10 @@ yarn-error.log*
 # vercel
 .vercel
 
+# artefactos de verificación visual (Playwright MCP / screenshots)
+.playwright-mcp/
+/catalog-desktop.jpeg
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts

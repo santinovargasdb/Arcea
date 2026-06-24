@@ -46,6 +46,18 @@
   --radius-2xl: calc(var(--radius) * 1.8);
   --radius-3xl: calc(var(--radius) * 2.2);
   --radius-4xl: calc(var(--radius) * 2.6);
+
+  /* Paleta de marca Arcea */
+  --color-cream: #f4eee3;
+  --color-paper: #fbf7ef;
+  --color-beige: #d8c9ae;
+  --color-beige-soft: #e3d8c2;
+  --color-green: #2c382a;
+  --color-green-mid: #46553c;
+  --color-green-light: #8e9c78;
+  --color-green-pale: #c3cbb2;
+  --color-ink: #23231d;
+  --color-burgundy: #6e292e;
 }
 
 :root {

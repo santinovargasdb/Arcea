@@ -29,15 +29,19 @@ Leyenda: `[x]` hecho · `[~]` en progreso · `[ ]` pendiente
 
 ---
 
-## Fase 1 — Catálogo `[ ]`
+## Fase 1 — Catálogo `[~]`
 
-- [ ] Migración del schema de catálogo: `categories`, `products`, `product_variants`, `product_images`
-- [ ] Políticas RLS de lectura pública (solo productos activos) + datos seed
-- [ ] Supabase Storage (`product-images`) y `next.config` para `next/image`
-- [ ] Páginas (RSC): listado de productos, detalle, categorías
-- [ ] Búsqueda (full-text), filtros (talle/color/precio), orden y paginación
-- [ ] Generar tipos (`supabase gen types`) → `src/types/database.types.ts`
+- [x] Migración del schema de catálogo: `categories`, `products`, `product_variants`, `product_images`
+- [x] Políticas RLS de lectura pública (solo productos activos) + datos seed
+- [~] Supabase Storage (`product-images`) y `next.config` para `next/image` — `next.config` listo (picsum + `*.supabase.co`); el bucket se crea al conectar Supabase
+- [x] Páginas (RSC): listado de productos, detalle, categorías
+- [x] Búsqueda, filtros (talle/color), orden y paginación — full-text (`search` tsvector) listo en el schema; el filtro server-side se enchufa al conectar Supabase
+- [~] Generar tipos (`supabase gen types`) → `src/types/database.types.ts` — tipos escritos a mano; regenerar al conectar Supabase
 - [ ] Deploy
+
+> 💡 El catálogo funciona **sin backend** todavía: `queries.ts` cae a datos seed
+> (`seed-data.ts`) mientras no haya `.env` de Supabase, y usa la base real cuando se
+> configure. `npm run build` pasa. Falta solo el deploy (bloqueante externo).
 
 ## Fase 2 — Autenticación y cuentas `[ ]`
 
