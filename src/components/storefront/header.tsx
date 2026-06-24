@@ -10,8 +10,8 @@ const NAV = [
   { label: "Colección", href: "/products" },
   { label: "Sweaters", href: "/products?category=sweaters" },
   { label: "Abrigos", href: "/products?category=abrigos" },
-  { label: "Tejidos", href: "/products?category=tejidos" },
-  { label: "Casual", href: "/products?category=casual" },
+  { label: "Nosotros", href: "/about" },
+  { label: "Contacto", href: "/contacto" },
 ];
 
 export function Header({ isAuthenticated = false }: { isAuthenticated?: boolean }) {

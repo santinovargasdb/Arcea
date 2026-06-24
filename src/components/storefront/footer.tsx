@@ -23,7 +23,8 @@ const COLS = [
   {
     title: "Estudio",
     links: [
-      { label: "Sobre nosotros", href: "#" },
+      { label: "Sobre nosotros", href: "/about" },
+      { label: "Contacto", href: "/contacto" },
       { label: "Lookbook", href: "#" },
       { label: "Sostenibilidad", href: "#" },
     ],
