@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { Search, User, ShoppingBag, Menu, X } from "lucide-react";
+import { useCart } from "@/lib/cart/cart-context";
 
 const NAV = [
   { label: "Inicio", href: "/" },
@@ -15,6 +16,7 @@ const NAV = [
 
 export function Header({ isAuthenticated = false }: { isAuthenticated?: boolean }) {
   const [open, setOpen] = useState(false);
+  const { totalItems, openCart, mounted } = useCart();
 
   return (
     <header className="sticky top-0 z-50 border-b border-green/10 bg-cream/90 backdrop-blur-md">
@@ -49,8 +51,18 @@ export function Header({ isAuthenticated = false }: { isAuthenticated?: boolean 
           >
             <User className="h-5 w-5" />
           </Link>
-          <button aria-label="Carrito" className="relative transition-colors hover:text-burgundy">
+          <button
+            type="button"
+            aria-label="Carrito"
+            onClick={openCart}
+            className="relative transition-colors hover:text-burgundy"
+          >
             <ShoppingBag className="h-5 w-5" />
+            {mounted && totalItems > 0 && (
+              <span className="absolute -right-2 -top-2 grid h-4 min-w-4 place-items-center rounded-full bg-burgundy px-1 text-[0.6rem] font-bold leading-none text-cream">
+                {totalItems}
+              </span>
+            )}
           </button>
           <button
             aria-label="Menú"
