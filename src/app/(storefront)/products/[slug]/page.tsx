@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import { ChevronLeft } from "lucide-react";
 import { getProductBySlug } from "@/lib/db/queries";
 import { formatPrice } from "@/lib/format";
+import { AddToCart } from "@/components/cart/add-to-cart";
 
 export async function generateMetadata({
   params,
@@ -100,40 +101,7 @@ export default async function ProductPage({
             {product.description}
           </p>
 
-          {/* Talles */}
-          {product.sizes.length > 0 && (
-            <div className="mt-8">
-              <p className="text-xs uppercase tracking-wider text-green-mid">Talle</p>
-              <div className="mt-2 flex flex-wrap gap-2">
-                {product.sizes.map((s) => (
-                  <span
-                    key={s}
-                    className="grid h-10 min-w-10 place-items-center rounded-md border border-beige px-3 text-sm font-medium"
-                  >
-                    {s}
-                  </span>
-                ))}
-              </div>
-            </div>
-          )}
-
-          {/* Colores */}
-          {product.colors.length > 0 && (
-            <div className="mt-5">
-              <p className="text-xs uppercase tracking-wider text-green-mid">Color</p>
-              <div className="mt-2 flex gap-2">
-                {product.colors.map((c) => (
-                  <span
-                    key={c.name}
-                    title={c.name}
-                    className="h-8 w-8 rounded-full border-2 border-black/10"
-                    style={{ background: c.hex }}
-                  />
-                ))}
-              </div>
-            </div>
-          )}
-
+          {/* Stock */}
           <p className="mt-6 text-sm">
             {lowStock ? (
               <span className="font-medium text-burgundy">¡Últimas unidades!</span>
@@ -142,17 +110,16 @@ export default async function ProductPage({
             )}
           </p>
 
+          {/* Selección de variante + agregar al carrito */}
           <div className="mt-6">
-            <button
-              type="button"
-              disabled
-              className="w-full rounded-full bg-green px-8 py-4 text-sm font-semibold uppercase tracking-wider text-cream opacity-60 sm:w-auto"
-            >
-              Agregar al carrito
-            </button>
-            <p className="mt-2 text-xs text-ink/50">
-              El carrito y el checkout se habilitan en la próxima etapa.
-            </p>
+            <AddToCart
+              slug={product.slug}
+              name={product.name}
+              image={product.image}
+              basePrice={product.basePrice}
+              sizes={product.sizes}
+              colors={product.colors}
+            />
           </div>
         </div>
       </div>
