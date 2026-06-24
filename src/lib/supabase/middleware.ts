@@ -32,7 +32,18 @@ export async function updateSession(request: NextRequest) {
 
   // IMPORTANTE: no insertar lógica entre createServerClient y getUser().
   // getUser() revalida el token con Supabase y refresca la sesión.
-  await supabase.auth.getUser();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
+  // Gating: /account requiere sesión. (El gating de /admin entra en la Fase 5.)
+  const { pathname } = request.nextUrl;
+  if (!user && pathname.startsWith("/account")) {
+    const url = request.nextUrl.clone();
+    url.pathname = "/login";
+    url.searchParams.set("next", pathname);
+    return NextResponse.redirect(url);
+  }
 
   return supabaseResponse;
 }
